@@ -1,0 +1,67 @@
+Zeit(s),Intensität(%),Stroke_Rate(%),Beschreibung
+0,5,10,Langsamer Start
+1,8,15,Sanfte Steigerung
+2,12,20,Fortsetzung
+3,16,25,Allmähliche Zunahme
+4,20,30,Moderate Intensität
+5,25,35,Weiter steigend
+6,30,40,Mittleres Niveau
+7,35,45,Intensität baut auf
+8,40,50,Stärkere Phase
+9,50,60,Vorbereitung Maximum
+10,70,80,Hohe Intensität
+11,80,90,Fast Maximum
+12,90,95,Sehr hoch
+13,95,98,Nahezu Maximum
+14,100,100,Maximum erreicht
+15,0,0,Pause beginnt
+16,0,0,Pause
+17,0,0,Pause
+18,0,0,Pause
+19,0,0,Pause
+20,0,0,Pause
+21,0,0,Pause Ende
+22,5,10,Neuer Zyklus Start
+23,8,15,Sanfte Steigerung
+24,12,20,Fortsetzung
+25,16,25,Allmähliche Zunahme
+26,20,30,Moderate Intensität
+27,25,35,Weiter steigend
+28,30,40,Mittleres Niveau
+29,35,45,Intensität baut auf
+30,40,50,Stärkere Phase
+31,50,60,Vorbereitung Maximum
+32,70,80,Hohe Intensität
+33,80,90,Fast Maximum
+34,90,95,Sehr hoch
+35,95,98,Nahezu Maximum
+36,100,100,Maximum erreicht
+37,0,0,Pause beginnt
+38,0,0,Pause
+39,0,0,Pause
+40,0,0,Pause
+41,0,0,Pause
+42,0,0,Pause
+43,0,0,Pause Ende
+44,5,10,Neuer Zyklus Start
+45,8,15,Sanfte Steigerung
+46,12,20,Fortsetzung
+47,16,25,Allmähliche Zunahme
+48,20,30,Moderate Intensität
+49,25,35,Weiter steigend
+50,30,40,Mittleres Niveau
+51,35,45,Intensität baut auf
+52,40,50,Stärkere Phase
+53,50,60,Vorbereitung Maximum
+54,70,80,Hohe Intensität
+55,80,90,Fast Maximum
+56,90,95,Sehr hoch
+57,95,98,Nahezu Maximum
+58,100,100,Maximum erreicht
+59,0,0,Pause beginnt
+60,0,0,Pause
+61,0,0,Pause
+62,0,0,Pause
+63,0,0,Pause
+64,0,0,Pause
+65,0,0,Pause Ende
