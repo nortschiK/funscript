@@ -1,0 +1,45 @@
+name: Update Austria Running Events
+
+on:
+  schedule:
+    # Täglich um 06:00 UTC (08:00 Wiener Zeit)
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-events:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: claude/austria-running-events-OYydZ
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run scraper
+        run: python austria-running/scraper.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet austria-running/events.json && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push updated events
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add austria-running/events.json
+          git commit -m "chore: update running events $(date -u '+%Y-%m-%d')"
+          git push origin claude/austria-running-events-OYydZ
+
+      - name: No changes
+        if: steps.changes.outputs.changed == 'false'
+        run: echo "events.json is up to date, nothing to commit."

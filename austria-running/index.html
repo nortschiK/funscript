@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laufkalender Österreich – Marathons & Trailruns 2026</title>
+  <meta name="description" content="Alle Marathonläufe und Trailruns in Österreich 2026 – täglich aktualisiert mit Links zu den Veranstaltern." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red: #e63946;
+      --white: #f1faee;
+      --light-blue: #a8dadc;
+      --blue: #457b9d;
+      --dark: #1d3557;
+      --trail-color: #2d6a4f;
+      --trail-light: #d8f3dc;
+      --marathon-color: #1d3557;
+      --marathon-light: #dbeafe;
+      --card-bg: #ffffff;
+      --body-bg: #f8fafc;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow: 0 4px 24px rgba(0,0,0,0.07);
+      --shadow-hover: 0 8px 40px rgba(0,0,0,0.13);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--body-bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #1d3557 0%, #2b6cb0 50%, #2d6a4f 100%);
+      color: #fff;
+      padding: 80px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-mountains {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      opacity: 0.15;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .hero .flag { font-size: 1.5em; }
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.88;
+      max-width: 580px;
+      margin: 0 auto 32px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .stat {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 16px 28px;
+      text-align: center;
+    }
+    .stat-num { font-size: 2rem; font-weight: 800; }
+    .stat-label { font-size: 0.8rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* ===== UPDATED BADGE ===== */
+    .update-bar {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .update-bar .dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      margin-right: 6px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ===== CONTROLS ===== */
+    .controls {
+      max-width: 1200px;
+      margin: 32px auto 0;
+      padding: 0 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .search-wrap {
+      flex: 1;
+      min-width: 200px;
+      position: relative;
+    }
+    .search-wrap svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+    .search-wrap input {
+      width: 100%;
+      padding: 12px 16px 12px 44px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-wrap input:focus { border-color: var(--blue); }
+
+    .filter-group { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn {
+      padding: 10px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .filter-btn:hover { border-color: var(--blue); color: var(--blue); }
+    .filter-btn.active-all { background: var(--dark); color: #fff; border-color: var(--dark); }
+    .filter-btn.active-trail { background: var(--trail-color); color: #fff; border-color: var(--trail-color); }
+    .filter-btn.active-marathon { background: var(--marathon-color); color: #fff; border-color: var(--marathon-color); }
+
+    .sort-select {
+      padding: 10px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      font-size: 0.88rem;
+      cursor: pointer;
+      outline: none;
+    }
+
+    /* ===== RESULTS INFO ===== */
+    .results-info {
+      max-width: 1200px;
+      margin: 16px auto 0;
+      padding: 0 24px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== CARDS GRID ===== */
+    .events-grid {
+      max-width: 1200px;
+      margin: 20px auto 60px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .event-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+    }
+    .event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-header {
+      padding: 20px 22px 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+    .icon-trail { background: var(--trail-light); }
+    .icon-marathon { background: var(--marathon-light); }
+
+    .card-meta { flex: 1; min-width: 0; }
+    .event-type-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 6px;
+    }
+    .badge-trail { background: var(--trail-light); color: var(--trail-color); }
+    .badge-marathon { background: var(--marathon-light); color: var(--marathon-color); }
+
+    .card-meta h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .card-location {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-date-strip {
+      background: linear-gradient(90deg, var(--body-bg), transparent);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .card-date-strip .countdown {
+      margin-left: auto;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--dark);
+      color: #fff;
+      padding: 2px 10px;
+      border-radius: 20px;
+    }
+    .card-date-strip .past { background: var(--text-muted); }
+
+    .card-body {
+      padding: 16px 22px;
+      flex: 1;
+    }
+    .card-description {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.55;
+    }
+
+    .distances-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .distance-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid;
+    }
+    .tag-trail { color: var(--trail-color); border-color: var(--trail-color); background: var(--trail-light); }
+    .tag-marathon { color: var(--marathon-color); border-color: var(--marathon-color); background: var(--marathon-light); }
+
+    .elevation-info {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 14px;
+    }
+
+    .card-footer {
+      padding: 14px 22px 20px;
+    }
+    .visit-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 11px 20px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-trail { background: var(--trail-color); color: #fff; }
+    .btn-trail:hover { background: #1b4332; }
+    .btn-marathon { background: var(--marathon-color); color: #fff; }
+    .btn-marathon:hover { background: #0f2440; }
+
+    /* ===== NEW BADGE ===== */
+    .new-badge {
+      background: #f59e0b;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* ===== NO RESULTS ===== */
+    .no-results {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+    .no-results h3 { font-size: 1.3rem; margin-bottom: 8px; }
+
+    /* ===== SOURCES ===== */
+    .sources-section {
+      background: var(--dark);
+      color: rgba(255,255,255,0.75);
+      padding: 48px 24px;
+      text-align: center;
+    }
+    .sources-section h3 {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .sources-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .source-link {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      transition: background 0.2s;
+    }
+    .source-link:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+    }
+    footer a { color: rgba(255,255,255,0.7); }
+
+    /* ===== REGION FILTER ===== */
+    .region-select {
+      padding: 10px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      font-size: 0.88rem;
+      cursor: pointer;
+      outline: none;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 600px) {
+      .hero { padding: 60px 16px 40px; }
+      .hero-stats { gap: 12px; }
+      .stat { padding: 12px 18px; }
+      .events-grid { grid-template-columns: 1fr; padding: 0 16px; }
+      .controls { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <h1><span class="flag">🇦🇹</span> Laufkalender Österreich</h1>
+  <p>Alle Marathons &amp; Trailruns in Österreich – täglich aktualisiert, mit direktem Link zum Veranstalter.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num" id="total-count">—</div>
+      <div class="stat-label">Veranstaltungen</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="marathon-count">—</div>
+      <div class="stat-label">Marathons</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="trail-count">—</div>
+      <div class="stat-label">Trailruns</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="next-days">—</div>
+      <div class="stat-label">Tage bis nächster Lauf</div>
+    </div>
+  </div>
+  <svg class="hero-mountains" viewBox="0 0 1200 80" preserveAspectRatio="none" fill="white">
+    <path d="M0 80 L100 40 L200 60 L350 10 L500 50 L620 20 L750 55 L900 15 L1050 45 L1150 25 L1200 35 L1200 80 Z"/>
+  </svg>
+</header>
+
+<!-- UPDATE BAR -->
+<div class="update-bar">
+  <span class="dot"></span>
+  Zuletzt aktualisiert: <strong id="last-updated">—</strong> &nbsp;|&nbsp;
+  Täglich automatisch aktualisiert via GitHub Actions
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <div class="search-wrap">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="text" id="search" placeholder="Suche nach Event, Ort, Region …" />
+  </div>
+  <div class="filter-group">
+    <button class="filter-btn active-all" data-filter="all" onclick="setFilter('all', this)">🏃 Alle</button>
+    <button class="filter-btn" data-filter="marathon" onclick="setFilter('marathon', this)">🏅 Marathon</button>
+    <button class="filter-btn" data-filter="trail" onclick="setFilter('trail', this)">🏔️ Trail</button>
+  </div>
+  <select class="region-select" id="region-filter" onchange="renderCards()">
+    <option value="all">Alle Regionen</option>
+    <option value="Wien">Wien</option>
+    <option value="Niederösterreich">Niederösterreich</option>
+    <option value="Oberösterreich">Oberösterreich</option>
+    <option value="Salzburg">Salzburg</option>
+    <option value="Steiermark">Steiermark</option>
+    <option value="Kärnten">Kärnten</option>
+    <option value="Tirol">Tirol</option>
+    <option value="Vorarlberg">Vorarlberg</option>
+    <option value="Burgenland">Burgenland</option>
+  </select>
+  <select class="sort-select" id="sort-select" onchange="renderCards()">
+    <option value="date-asc">📅 Datum aufsteigend</option>
+    <option value="date-desc">📅 Datum absteigend</option>
+    <option value="name">🔤 Name A–Z</option>
+  </select>
+</div>
+
+<div class="results-info" id="results-info"></div>
+
+<!-- EVENTS GRID -->
+<main class="events-grid" id="events-grid"></main>
+
+<!-- SOURCES -->
+<section class="sources-section">
+  <h3>📡 Datenquellen</h3>
+  <div class="sources-grid" id="sources-grid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Laufkalender Österreich &copy; 2026 | Alle Angaben ohne Gewähr | Täglich automatisch aktualisiert</p>
+  <p style="margin-top:6px"><a href="https://github.com/nortschik/funscript">GitHub</a></p>
+</footer>
+
+<script>
+let allEvents = [];
+let activeFilter = 'all';
+
+const TODAY = new Date();
+TODAY.setHours(0,0,0,0);
+
+function formatDate(dateStr, dateEndStr) {
+  const opts = { day: 'numeric', month: 'long', year: 'numeric' };
+  const d = new Date(dateStr);
+  if (dateEndStr) {
+    const de = new Date(dateEndStr);
+    const startOpts = { day: 'numeric', month: 'long' };
+    return `${d.toLocaleDateString('de-AT', startOpts)} – ${de.toLocaleDateString('de-AT', opts)}`;
+  }
+  return d.toLocaleDateString('de-AT', opts);
+}
+
+function daysUntil(dateStr) {
+  const d = new Date(dateStr);
+  d.setHours(0,0,0,0);
+  return Math.ceil((d - TODAY) / (1000*60*60*24));
+}
+
+function countdownLabel(dateStr) {
+  const diff = daysUntil(dateStr);
+  if (diff < 0) return { label: 'Vergangen', past: true };
+  if (diff === 0) return { label: 'Heute! 🎉', past: false };
+  if (diff === 1) return { label: 'Morgen!', past: false };
+  return { label: `in ${diff} Tagen`, past: false };
+}
+
+function setFilter(type, btn) {
+  activeFilter = type;
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.className = 'filter-btn';
+  });
+  if (type === 'all') btn.classList.add('active-all');
+  else if (type === 'trail') btn.classList.add('active-trail');
+  else if (type === 'marathon') btn.classList.add('active-marathon');
+  renderCards();
+}
+
+function getFiltered() {
+  const search = document.getElementById('search').value.toLowerCase();
+  const region = document.getElementById('region-filter').value;
+  const sort = document.getElementById('sort-select').value;
+
+  let filtered = allEvents.filter(e => {
+    const matchType = activeFilter === 'all' || e.type === activeFilter;
+    const matchRegion = region === 'all' || (e.region && e.region.includes(region));
+    const matchSearch = !search || [e.name, e.location, e.description, e.region]
+      .some(f => f && f.toLowerCase().includes(search));
+    return matchType && matchRegion && matchSearch;
+  });
+
+  if (sort === 'date-asc') filtered.sort((a,b) => a.date.localeCompare(b.date));
+  else if (sort === 'date-desc') filtered.sort((a,b) => b.date.localeCompare(a.date));
+  else if (sort === 'name') filtered.sort((a,b) => a.name.localeCompare(b.name));
+
+  return filtered;
+}
+
+function isNew(dateStr) {
+  const d = new Date(dateStr);
+  const diff = (d - TODAY) / (1000*60*60*24);
+  return diff > 0 && diff < 60;
+}
+
+function renderCards() {
+  const grid = document.getElementById('events-grid');
+  const info = document.getElementById('results-info');
+  const filtered = getFiltered();
+
+  info.textContent = `${filtered.length} Veranstaltung${filtered.length !== 1 ? 'en' : ''} gefunden`;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div class="no-results"><h3>Keine Veranstaltungen gefunden</h3><p>Bitte andere Suchbegriffe oder Filter versuchen.</p></div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(e => {
+    const isTrail = e.type === 'trail';
+    const iconClass = isTrail ? 'icon-trail' : 'icon-marathon';
+    const badgeClass = isTrail ? 'badge-trail' : 'badge-marathon';
+    const tagClass = isTrail ? 'tag-trail' : 'tag-marathon';
+    const btnClass = isTrail ? 'btn-trail' : 'btn-marathon';
+    const icon = isTrail ? '🏔️' : '🏅';
+    const typeLabel = isTrail ? 'Trail Run' : 'Marathon';
+    const { label, past } = countdownLabel(e.date);
+    const newBadge = isNew(e.date) ? '<span class="new-badge">Neu</span>' : '';
+
+    const elevHtml = e.elevation_gain
+      ? `<div class="elevation-info">⛰️ ${e.elevation_gain.toLocaleString('de-AT')} Hm Aufstieg</div>`
+      : '';
+
+    const distTags = e.distances.map(d =>
+      `<span class="distance-tag ${tagClass}">${d}</span>`
+    ).join('');
+
+    return `
+    <article class="event-card">
+      <div class="card-header">
+        <div class="card-icon ${iconClass}">${icon}</div>
+        <div class="card-meta">
+          <span class="event-type-badge ${badgeClass}">${typeLabel}</span>
+          <h2>${e.name}${newBadge}</h2>
+          <div class="card-location">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 10c0 6-8 13-8 13s-8-7-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            ${e.location}
+          </div>
+        </div>
+      </div>
+      <div class="card-date-strip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        ${formatDate(e.date, e.date_end)}
+        <span class="countdown${past ? ' past' : ''}">${label}</span>
+      </div>
+      <div class="card-body">
+        <p class="card-description">${e.description}</p>
+        <div class="distances-wrap">${distTags}</div>
+        ${elevHtml}
+      </div>
+      <div class="card-footer">
+        <a href="${e.website}" target="_blank" rel="noopener" class="visit-btn ${btnClass}">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Zum Veranstalter
+        </a>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+function updateStats() {
+  const marathons = allEvents.filter(e => e.type === 'marathon').length;
+  const trails = allEvents.filter(e => e.type === 'trail').length;
+  document.getElementById('total-count').textContent = allEvents.length;
+  document.getElementById('marathon-count').textContent = marathons;
+  document.getElementById('trail-count').textContent = trails;
+
+  const future = allEvents
+    .filter(e => daysUntil(e.date) >= 0)
+    .sort((a,b) => a.date.localeCompare(b.date));
+  const nextDays = future.length > 0 ? daysUntil(future[0].date) : '—';
+  document.getElementById('next-days').textContent = nextDays === 0 ? 'Heute!' : nextDays;
+}
+
+function renderSources(sources) {
+  const grid = document.getElementById('sources-grid');
+  grid.innerHTML = sources.map(s =>
+    `<a href="${s.url}" target="_blank" rel="noopener" class="source-link">${s.name}</a>`
+  ).join('');
+}
+
+async function loadEvents() {
+  try {
+    const res = await fetch('events.json?' + Date.now());
+    const data = await res.json();
+    allEvents = data.events || [];
+    document.getElementById('last-updated').textContent = data.last_updated || '—';
+    updateStats();
+    renderCards();
+    if (data.sources) renderSources(data.sources);
+  } catch(err) {
+    console.error('Fehler beim Laden der Events:', err);
+    document.getElementById('events-grid').innerHTML =
+      '<div class="no-results"><h3>Fehler beim Laden</h3><p>events.json konnte nicht geladen werden.</p></div>';
+  }
+}
+
+document.getElementById('search').addEventListener('input', renderCards);
+
+loadEvents();
+</script>
+</body>
+</html>
