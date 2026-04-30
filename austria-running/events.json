@@ -7,7 +7,12 @@
       "type": "marathon",
       "date": "2026-04-12",
       "location": "Linz, Oberösterreich",
-      "distances": ["5 km", "Halbmarathon", "Marathon", "Staffel"],
+      "distances": [
+        "5 km",
+        "Halbmarathon",
+        "Marathon",
+        "Staffel"
+      ],
       "website": "https://www.linzmarathon.at",
       "description": "Der 24. Oberbank Linz Donau Marathon entlang der Donau – Österreichs beliebtester Frühjahrslauf mit ~20.000 Läufern.",
       "elevation_gain": null,
@@ -19,7 +24,13 @@
       "type": "marathon",
       "date": "2026-04-19",
       "location": "Wien",
-      "distances": ["5 km", "10 km", "Halbmarathon", "Marathon", "Staffel"],
+      "distances": [
+        "5 km",
+        "10 km",
+        "Halbmarathon",
+        "Marathon",
+        "Staffel"
+      ],
       "website": "https://www.vienna-marathon.com",
       "description": "Österreichs größter Marathon durch die Weltstadt Wien – seit über 40 Jahren ein Fixpunkt im Laufkalender.",
       "elevation_gain": null,
@@ -32,23 +43,18 @@
       "date": "2026-04-29",
       "date_end": "2026-05-02",
       "location": "Innsbruck, Tirol",
-      "distances": ["7 km", "15 km", "30 km", "55 km", "80 km", "110 km"],
+      "distances": [
+        "7 km",
+        "15 km",
+        "30 km",
+        "55 km",
+        "80 km",
+        "110 km"
+      ],
       "website": "https://www.innsbruckalpine.at",
       "description": "Das größte Trailrun-Festival im deutschsprachigen Alpenraum – 14 Bewerbe von 7 bis 113 km mit bis zu 5.600 Hm.",
       "elevation_gain": 5600,
       "region": "Tirol"
-    },
-    {
-      "id": 4,
-      "name": "PUMA Salzburg Marathon",
-      "type": "marathon",
-      "date": "2026-05-17",
-      "location": "Salzburg",
-      "distances": ["5 km", "10 km", "Halbmarathon", "Marathon", "Staffel"],
-      "website": "https://salzburg-marathon.at",
-      "description": "Die Lauffestspiele der Mozartstadt – ein Marathon durch das UNESCO-Weltkulturerbe Salzburg.",
-      "elevation_gain": null,
-      "region": "Salzburg"
     },
     {
       "id": 5,
@@ -56,7 +62,12 @@
       "type": "trail",
       "date": "2026-05-09",
       "location": "Pörtschach am Wörthersee, Kärnten",
-      "distances": ["14 km", "28 km", "46 km", "65 km"],
+      "distances": [
+        "14 km",
+        "28 km",
+        "46 km",
+        "65 km"
+      ],
       "website": "https://www.woerthersee-trail.at",
       "description": "Trail- und Wanderfestival am schönsten See Österreichs mit spektakulären Ausblicken auf den Wörthersee.",
       "elevation_gain": 2800,
@@ -69,7 +80,11 @@
       "date": "2026-05-14",
       "date_end": "2026-05-16",
       "location": "Umhausen, Ötztal, Tirol",
-      "distances": ["10 km", "28 km", "55 km"],
+      "distances": [
+        "10 km",
+        "28 km",
+        "55 km"
+      ],
       "website": "https://www.oetztal-trailrunning.at",
       "description": "Spektakulärer Trailrun am Stuibenfall – dem größten Wasserfall Tirols (159 m). Inkl. 728 Treppenstufen!",
       "elevation_gain": 2200,
@@ -81,11 +96,33 @@
       "type": "trail",
       "date": "2026-05-16",
       "location": "Semmering, Niederösterreich",
-      "distances": ["8 km", "16 km", "28 km"],
+      "distances": [
+        "8 km",
+        "16 km",
+        "28 km"
+      ],
       "website": "https://www.semmering.com",
       "description": "Trailrun im UNESCO-Welterbe Semmeringbahn-Region mit herrlichem Panorama.",
       "elevation_gain": 900,
       "region": "Niederösterreich"
+    },
+    {
+      "id": 4,
+      "name": "PUMA Salzburg Marathon",
+      "type": "marathon",
+      "date": "2026-05-17",
+      "location": "Salzburg",
+      "distances": [
+        "5 km",
+        "10 km",
+        "Halbmarathon",
+        "Marathon",
+        "Staffel"
+      ],
+      "website": "https://salzburg-marathon.at",
+      "description": "Die Lauffestspiele der Mozartstadt – ein Marathon durch das UNESCO-Weltkulturerbe Salzburg.",
+      "elevation_gain": null,
+      "region": "Salzburg"
     },
     {
       "id": 8,
@@ -93,7 +130,10 @@
       "type": "trail",
       "date": "2026-06-13",
       "location": "Imst, Tirol",
-      "distances": ["12 km", "25 km"],
+      "distances": [
+        "12 km",
+        "25 km"
+      ],
       "website": "https://www.tschirgant-skyrun.at",
       "description": "Vertikalrennen und Skyrun am Tschirgant – einer der steilsten Berge Tirols mit einzigartiger Felswand.",
       "elevation_gain": 1600,
@@ -105,23 +145,15 @@
       "type": "marathon",
       "date": "2026-06-27",
       "location": "Silbertal – St. Anton am Arlberg, Vorarlberg/Tirol",
-      "distances": ["15 km Trail", "33 km Trail", "Marathon 42 km"],
+      "distances": [
+        "15 km Trail",
+        "33 km Trail",
+        "Marathon 42 km"
+      ],
       "website": "https://www.montafon.at/montafon-arlberg-marathon",
       "description": "Bergmarathon von Silbertal bis St. Anton mit 1.500 Hm – spektakuläre Alpenlandschaft zwischen Vorarlberg und Tirol.",
       "elevation_gain": 1500,
       "region": "Vorarlberg/Tirol"
-    },
-    {
-      "id": 10,
-      "name": "Grossglockner Mountain Run",
-      "type": "trail",
-      "date": "2026-07-05",
-      "location": "Heiligenblut, Kärnten",
-      "distances": ["13,3 km"],
-      "website": "https://grossglockner-mountainrun.at",
-      "description": "Legendärer Berglauf von Heiligenblut (1.250 m) zur Kaiser-Franz-Josefs-Höhe (2.370 m) mit 1.300 Hm.",
-      "elevation_gain": 1300,
-      "region": "Kärnten"
     },
     {
       "id": 11,
@@ -130,10 +162,28 @@
       "date": "2026-07-03",
       "date_end": "2026-07-05",
       "location": "Heiligenblut, Kärnten",
-      "distances": ["50 km", "100 km", "UltraK"],
+      "distances": [
+        "50 km",
+        "100 km",
+        "UltraK"
+      ],
       "website": "https://www.ultratrail.at",
       "description": "Ultra-Trail rund um Österreichs höchsten Berg – durch die beeindruckende Hochgebirgslandschaft des Großglockners.",
       "elevation_gain": 4500,
+      "region": "Kärnten"
+    },
+    {
+      "id": 10,
+      "name": "Grossglockner Mountain Run",
+      "type": "trail",
+      "date": "2026-07-05",
+      "location": "Heiligenblut, Kärnten",
+      "distances": [
+        "13,3 km"
+      ],
+      "website": "https://grossglockner-mountainrun.at",
+      "description": "Legendärer Berglauf von Heiligenblut (1.250 m) zur Kaiser-Franz-Josefs-Höhe (2.370 m) mit 1.300 Hm.",
+      "elevation_gain": 1300,
       "region": "Kärnten"
     },
     {
@@ -143,121 +193,194 @@
       "date": "2026-07-31",
       "date_end": "2026-08-02",
       "location": "St. Leonhard im Pitztal, Tirol",
-      "distances": ["16 km", "36 km", "60 km", "80 km", "103 km"],
+      "distances": [
+        "16 km",
+        "36 km",
+        "60 km",
+        "80 km",
+        "103 km"
+      ],
       "website": "https://www.oetztal-trailrunning.at/die-running-events/gletscher-trailrun",
       "description": "Trail am Pitztaler Gletscher auf bis zu 3.000 m Höhe – sieben Distanzen durch eine der wildesten Hochgebirgslandschaften Tirols.",
       "elevation_gain": 5500,
       "region": "Tirol"
     },
     {
-      "id": 13,
-      "name": "Wörthersee Marathon",
-      "type": "marathon",
-      "date": "2026-09-27",
-      "location": "Klagenfurt am Wörthersee, Kärnten",
-      "distances": ["Halbmarathon", "Marathon", "Staffel", "Walk the Lake"],
-      "website": "https://woerthersee-marathon.at",
-      "description": "Premiere 2026! Ein See, eine Runde, ein Marathon – 42 km rund um den Wörthersee, organisiert von der VCM-Familie.",
-      "elevation_gain": null,
-      "region": "Kärnten"
-    },
-    {
       "id": 14,
-      "name": "Torlauf Dachstein",
+      "name": "Ötztal Ultratrail",
       "type": "trail",
-      "date": "2026-09-05",
-      "location": "Ramsau am Dachstein, Steiermark",
-      "distances": ["10 km", "Halbmarathon", "Marathon", "Ultra"],
-      "website": "https://www.torlauf-dachstein.info",
-      "description": "10 Jahre Torlauf Dachstein! Jubiläumsausgabe mit neuem Ultra-Bewerb – spektakuläre Kulisse am Dachsteinmassiv.",
-      "elevation_gain": 2000,
-      "region": "Steiermark"
+      "date": "2026-08-14",
+      "date_end": "2026-08-16",
+      "location": "Sölden, Ötztal, Tirol",
+      "distances": [
+        "25 km",
+        "50 km",
+        "100 km"
+      ],
+      "website": "https://www.oetztal-trailrunning.at",
+      "description": "Ultra-Trail im Ötztal mit Distanzen bis 100 km durch die hochalpine Gletscherwelt.",
+      "elevation_gain": 5000,
+      "region": "Tirol"
     },
     {
-      "id": 15,
-      "name": "Kleine Zeitung Graz Marathon",
-      "type": "marathon",
-      "date": "2026-10-11",
-      "location": "Graz, Steiermark",
-      "distances": ["5 km", "10 km", "Halbmarathon", "Marathon", "Staffel"],
-      "website": "https://www.grazmarathon.at",
-      "description": "Der Stadtmarathon durch die Kulturhauptstadt Graz – flache Strecke durch die historische Altstadt.",
-      "elevation_gain": null,
-      "region": "Steiermark"
-    },
-    {
-      "id": 16,
-      "name": "3-Länder Marathon Bregenz",
-      "type": "marathon",
-      "date": "2026-10-11",
-      "location": "Bregenz, Vorarlberg",
-      "distances": ["11 km", "Halbmarathon", "Marathon"],
-      "website": "https://www.3-laender-marathon.at",
-      "description": "Einzigartiger Marathon über die Grenzen von Österreich, Deutschland und der Schweiz am Bodensee.",
-      "elevation_gain": null,
-      "region": "Vorarlberg"
-    },
-    {
-      "id": 17,
-      "name": "Vienna City Marathon",
-      "type": "marathon",
-      "date": "2026-10-17",
-      "date_end": "2026-10-18",
-      "location": "Wien",
-      "distances": ["5 km", "10 km", "Halbmarathon", "Marathon", "Staffel"],
-      "website": "https://www.vienna-marathon.com",
-      "description": "Der Herbst-VCM 2026 – Österreichs traditionsreichster Marathon durch das Herz Wiens.",
-      "elevation_gain": null,
-      "region": "Wien"
-    },
-    {
-      "id": 18,
-      "name": "Int. Wolfgangseelauf – Salzkammergut Marathon",
-      "type": "marathon",
-      "date": "2026-10-18",
-      "location": "St. Wolfgang im Salzkammergut, Oberösterreich",
-      "distances": ["5,2 km", "10 km", "27 km", "Marathon"],
-      "website": "https://www.wolfgangseelauf.at",
-      "description": "Malerischer Marathon durch das Salzkammergut – seit 1972 ein fixer Herbstklassiker am Wolfgangsee.",
-      "elevation_gain": 400,
-      "region": "Oberösterreich"
-    },
-    {
-      "id": 19,
+      "id": 13,
       "name": "Kleine Zeitung Wörthersee Halbmarathon",
       "type": "marathon",
       "date": "2026-08-30",
       "location": "Klagenfurt, Kärnten",
-      "distances": ["Halbmarathon"],
+      "distances": [
+        "Halbmarathon"
+      ],
       "website": "https://www.kaerntenlaeuft.at",
       "description": "Halbmarathon am Wörthersee im Sommer – perfekte Laufatmosphäre am schönsten See Kärntens.",
       "elevation_gain": null,
       "region": "Kärnten"
     },
     {
-      "id": 20,
-      "name": "Ötztal Ultratrail",
+      "id": 15,
+      "name": "Torlauf Dachstein",
       "type": "trail",
-      "date": "2026-08-14",
-      "date_end": "2026-08-16",
-      "location": "Sölden, Ötztal, Tirol",
-      "distances": ["25 km", "50 km", "100 km"],
-      "website": "https://www.oetztal-trailrunning.at",
-      "description": "Ultra-Trail im Ötztal mit Distanzen bis 100 km durch die hochalpine Gletscherwelt.",
-      "elevation_gain": 5000,
-      "region": "Tirol"
+      "date": "2026-09-05",
+      "location": "Ramsau am Dachstein, Steiermark",
+      "distances": [
+        "10 km",
+        "Halbmarathon",
+        "Marathon",
+        "Ultra"
+      ],
+      "website": "https://www.torlauf-dachstein.info",
+      "description": "10 Jahre Torlauf Dachstein! Jubiläumsausgabe mit neuem Ultra-Bewerb – spektakuläre Kulisse am Dachsteinmassiv.",
+      "elevation_gain": 2000,
+      "region": "Steiermark"
+    },
+    {
+      "id": 16,
+      "name": "Wörthersee Marathon",
+      "type": "marathon",
+      "date": "2026-09-27",
+      "location": "Klagenfurt am Wörthersee, Kärnten",
+      "distances": [
+        "Halbmarathon",
+        "Marathon",
+        "Staffel",
+        "Walk the Lake"
+      ],
+      "website": "https://woerthersee-marathon.at",
+      "description": "Premiere 2026! Ein See, eine Runde, ein Marathon – 42 km rund um den Wörthersee, organisiert von der VCM-Familie.",
+      "elevation_gain": null,
+      "region": "Kärnten"
+    },
+    {
+      "id": 17,
+      "name": "Kleine Zeitung Graz Marathon",
+      "type": "marathon",
+      "date": "2026-10-11",
+      "location": "Graz, Steiermark",
+      "distances": [
+        "5 km",
+        "10 km",
+        "Halbmarathon",
+        "Marathon",
+        "Staffel"
+      ],
+      "website": "https://www.grazmarathon.at",
+      "description": "Der Stadtmarathon durch die Kulturhauptstadt Graz – flache Strecke durch die historische Altstadt.",
+      "elevation_gain": null,
+      "region": "Steiermark"
+    },
+    {
+      "id": 18,
+      "name": "3-Länder Marathon Bregenz",
+      "type": "marathon",
+      "date": "2026-10-11",
+      "location": "Bregenz, Vorarlberg",
+      "distances": [
+        "11 km",
+        "Halbmarathon",
+        "Marathon"
+      ],
+      "website": "https://www.3-laender-marathon.at",
+      "description": "Einzigartiger Marathon über die Grenzen von Österreich, Deutschland und der Schweiz am Bodensee.",
+      "elevation_gain": null,
+      "region": "Vorarlberg"
+    },
+    {
+      "id": 20,
+      "name": "Vienna City Marathon (Herbst)",
+      "type": "marathon",
+      "date": "2026-10-17",
+      "date_end": "2026-10-18",
+      "location": "Wien",
+      "distances": [
+        "5 km",
+        "10 km",
+        "Halbmarathon",
+        "Marathon",
+        "Staffel"
+      ],
+      "website": "https://www.vienna-marathon.com",
+      "description": "Der Herbst-VCM 2026 – Österreichs traditionsreichster Marathon durch das Herz Wiens.",
+      "elevation_gain": null,
+      "region": "Wien"
+    },
+    {
+      "id": 19,
+      "name": "Int. Wolfgangseelauf – Salzkammergut Marathon",
+      "type": "marathon",
+      "date": "2026-10-18",
+      "location": "St. Wolfgang im Salzkammergut, Oberösterreich",
+      "distances": [
+        "5,2 km",
+        "10 km",
+        "27 km",
+        "Marathon"
+      ],
+      "website": "https://www.wolfgangseelauf.at",
+      "description": "Malerischer Marathon durch das Salzkammergut – seit 1972 ein fixer Herbstklassiker am Wolfgangsee.",
+      "elevation_gain": 400,
+      "region": "Oberösterreich"
     }
   ],
   "sources": [
-    {"name": "Vienna City Marathon", "url": "https://www.vienna-marathon.com"},
-    {"name": "Linz Marathon", "url": "https://www.linzmarathon.at"},
-    {"name": "Salzburg Marathon", "url": "https://salzburg-marathon.at"},
-    {"name": "Graz Marathon", "url": "https://www.grazmarathon.at"},
-    {"name": "MaxFun Sports", "url": "https://www.maxfunsports.com"},
-    {"name": "Innsbruck Alpine", "url": "https://www.innsbruckalpine.at"},
-    {"name": "GoTrail.run Austria", "url": "https://gotrail.run/en/calendar/austria"},
-    {"name": "ATRA - Trailrunning Verband Austria", "url": "https://www.atra.club"},
-    {"name": "runme.at", "url": "https://www.runme.at/laufkalender/oesterreich/"},
-    {"name": "Finishers.com Austria", "url": "https://www.finishers.com/en/destinations/europe/austria"}
+    {
+      "name": "Vienna City Marathon",
+      "url": "https://www.vienna-marathon.com"
+    },
+    {
+      "name": "Linz Marathon",
+      "url": "https://www.linzmarathon.at"
+    },
+    {
+      "name": "Salzburg Marathon",
+      "url": "https://salzburg-marathon.at"
+    },
+    {
+      "name": "Graz Marathon",
+      "url": "https://www.grazmarathon.at"
+    },
+    {
+      "name": "MaxFun Sports",
+      "url": "https://www.maxfunsports.com"
+    },
+    {
+      "name": "Innsbruck Alpine",
+      "url": "https://www.innsbruckalpine.at"
+    },
+    {
+      "name": "GoTrail.run Austria",
+      "url": "https://gotrail.run/en/calendar/austria"
+    },
+    {
+      "name": "ATRA – Trailrunning Verband Austria",
+      "url": "https://www.atra.club"
+    },
+    {
+      "name": "runme.at",
+      "url": "https://www.runme.at/laufkalender/oesterreich/"
+    },
+    {
+      "name": "Finishers.com Austria",
+      "url": "https://www.finishers.com/en/destinations/europe/austria"
+    }
   ]
 }

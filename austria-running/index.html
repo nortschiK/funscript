@@ -572,10 +572,24 @@ function getFiltered() {
   return filtered;
 }
 
-function isNew(dateStr) {
-  const d = new Date(dateStr);
-  const diff = (d - TODAY) / (1000*60*60*24);
-  return diff > 0 && diff < 60;
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function safeUrl(url) {
+  try {
+    const u = new URL(url);
+    return (u.protocol === 'https:' || u.protocol === 'http:') ? url : '#';
+  } catch { return '#'; }
+}
+
+function isSoon(dateStr) {
+  const diff = daysUntil(dateStr);
+  return diff > 0 && diff <= 14;
 }
 
 function renderCards() {
@@ -599,14 +613,14 @@ function renderCards() {
     const icon = isTrail ? '🏔️' : '🏅';
     const typeLabel = isTrail ? 'Trail Run' : 'Marathon';
     const { label, past } = countdownLabel(e.date);
-    const newBadge = isNew(e.date) ? '<span class="new-badge">Neu</span>' : '';
+    const soonBadge = isSoon(e.date) ? '<span class="new-badge">Bald</span>' : '';
 
     const elevHtml = e.elevation_gain
       ? `<div class="elevation-info">⛰️ ${e.elevation_gain.toLocaleString('de-AT')} Hm Aufstieg</div>`
       : '';
 
-    const distTags = e.distances.map(d =>
-      `<span class="distance-tag ${tagClass}">${d}</span>`
+    const distTags = (e.distances || []).map(d =>
+      `<span class="distance-tag ${tagClass}">${escHtml(d)}</span>`
     ).join('');
 
     return `
@@ -615,10 +629,10 @@ function renderCards() {
         <div class="card-icon ${iconClass}">${icon}</div>
         <div class="card-meta">
           <span class="event-type-badge ${badgeClass}">${typeLabel}</span>
-          <h2>${e.name}${newBadge}</h2>
+          <h2>${escHtml(e.name)}${soonBadge}</h2>
           <div class="card-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 10c0 6-8 13-8 13s-8-7-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            ${e.location}
+            ${escHtml(e.location)}
           </div>
         </div>
       </div>
@@ -628,12 +642,12 @@ function renderCards() {
         <span class="countdown${past ? ' past' : ''}">${label}</span>
       </div>
       <div class="card-body">
-        <p class="card-description">${e.description}</p>
+        <p class="card-description">${escHtml(e.description)}</p>
         <div class="distances-wrap">${distTags}</div>
         ${elevHtml}
       </div>
       <div class="card-footer">
-        <a href="${e.website}" target="_blank" rel="noopener" class="visit-btn ${btnClass}">
+        <a href="${escHtml(safeUrl(e.website))}" target="_blank" rel="noopener" class="visit-btn ${btnClass}">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Zum Veranstalter
         </a>

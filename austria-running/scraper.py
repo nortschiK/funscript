@@ -10,9 +10,8 @@ import sys
 import time
 import logging
 import urllib.request
-import urllib.parse
 import urllib.error
-from datetime import date, datetime
+from datetime import date
 from pathlib import Path
 from html.parser import HTMLParser
 
@@ -324,6 +323,22 @@ CURATED_EVENTS = [
         ),
         "elevation_gain": 400,
         "region": "Oberösterreich",
+    },
+    {
+        "id": 20,
+        "name": "Vienna City Marathon (Herbst)",
+        "type": "marathon",
+        "date": "2026-10-17",
+        "date_end": "2026-10-18",
+        "location": "Wien",
+        "distances": ["5 km", "10 km", "Halbmarathon", "Marathon", "Staffel"],
+        "website": "https://www.vienna-marathon.com",
+        "description": (
+            "Der Herbst-VCM 2026 – Österreichs traditionsreichster Marathon "
+            "durch das Herz Wiens."
+        ),
+        "elevation_gain": None,
+        "region": "Wien",
     },
 ]
 
